@@ -33,7 +33,12 @@ public class Application extends Controller {
     public static Result login() {
         Usuario u = Json.fromJson(request().body().asJson(), Usuario.class);
         Usuario uLogin = Usuario.find.where().eq("email", u.email).eq("clave", u.clave).findUnique();
-        return ok(Json.toJson(uLogin.email));
+        if(uLogin !=null){
+            return ok(Json.toJson(uLogin.email));
+        }else{
+            return ok(Json.toJson("null"));
+        }
+        
     }
 
     @BodyParser.Of(BodyParser.Json.class)
