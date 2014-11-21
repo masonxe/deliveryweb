@@ -23,6 +23,10 @@ public class Application extends Controller {
         return ok(restaurant.render("Encuentra tus platos favoritos", r));
     }
 
+    @BodyParser.Of(BodyParser.Json.class)
+    public static Result getRestaurantes(){
+        return ok(Json.toJson(Restaurant.find.all()));
+    }
 
     @BodyParser.Of(BodyParser.Json.class)
     public static Result getUsuario(Long id){
