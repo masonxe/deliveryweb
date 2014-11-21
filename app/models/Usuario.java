@@ -4,7 +4,7 @@ import play.db.ebean.*;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
 @SequenceGenerator(name="generator", sequenceName="usuario_seq")
 @Table(name="usuario")
 public class Usuario extends Model {
