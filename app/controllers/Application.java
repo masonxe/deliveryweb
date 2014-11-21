@@ -34,7 +34,7 @@ public class Application extends Controller {
         Usuario u = Json.fromJson(request().body().asJson(), Usuario.class);
         Usuario uLogin = Usuario.find.where().eq("email", u.email).eq("clave", u.clave).findUnique();
         if(uLogin !=null){
-            return ok(Json.toJson(uLogin.email));
+            return ok(Json.toJson("true"));
         }else{
             return ok(Json.toJson("Usuario no encontrado"));
         }
