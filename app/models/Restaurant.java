@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Restaurant extends Model{
     public String direccion;
     public String telefono;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "restaurant")
     public List<Comida> listaComidas;
 
