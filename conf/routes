@@ -12,3 +12,5 @@ GET     /assets/*file         controllers.Assets.at(path="/public", file)
 POST    /user/crear           controllers.Application.crearUsuario(email: String, clave: String, nombres: String, apellidos: String)
 POST    /user/login           controllers.Application.login(usuario: String, clave: String)
 GET     /user/{id}            controllers.Application.getUsuario(id: Long)
+
+GET     /restaurant/:id       controllers.Application.getRestaurant(id: Long)

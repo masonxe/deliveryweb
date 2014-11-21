@@ -1,11 +1,24 @@
-@(message: String)
+@(message: String, listaComida: List[models.Comida])
 
 @main("Kommmida: ¿Que te provoca comer hoy?") {
 
+<div style="text-align: center; margin: 0 auto">
 <h1>@message</h1>
 
-        <p>
-            Desde la comodidad de tu hogar, pide delivery y date el gusto !
-        </p>
+<p>
+    Desde la comodidad de tu hogar, pide delivery y date el gusto !
+</p>
 
+    <table border="1" align="center">
+        @for((c, idx) <- listaComida.zipWithIndex){
+        <tr>
+            <td>@(idx+1)</td>
+            <td><img src="@routes.Assets.at(c.foto)" /></td>
+            <td>@c.nombre</td>
+            <td><a href='@routes.Application.getRestaurant(c.id)'>@c.restaurant.nombre</a></td>
+        </tr>
+        }
+    </table>
+
+</div>
 }

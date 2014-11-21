@@ -1,5 +1,7 @@
 package controllers;
 
+import models.Comida;
+import models.Restaurant;
 import models.Usuario;
 import play.*;
 import play.libs.Json;
@@ -7,10 +9,18 @@ import play.mvc.*;
 
 import views.html.*;
 
+import java.util.List;
+
 public class Application extends Controller {
 
     public static Result index() {
-        return ok(index.render("Encuentra tus platos favoritos"));
+        List<Comida> listaComidas = Comida.find.all();
+        return ok(index.render("Encuentra tus platos favoritos", listaComidas));
+    }
+
+    public static Result getRestaurant(Long id) {
+        Restaurant r = Restaurant.find.byId(id);
+        return ok(restaurant.render("Encuentra tus platos favoritos", r));
     }
 
 
@@ -35,5 +45,7 @@ public class Application extends Controller {
         Usuario uLogin = Usuario.find.where().eq("email", email).eq("clave", clave).findUnique();
         return ok(Json.toJson(uLogin.email));
     }
+
+
 
 }

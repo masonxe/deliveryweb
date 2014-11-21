@@ -1,0 +1,25 @@
+@(message: String, restaurant: models.Restaurant)
+
+@main("Kommmida: ¿Que te provoca comer hoy?") {
+
+<div style="text-align: center; margin: 0 auto">
+<h1>@message</h1>
+
+<p>
+    Desde la comodidad de tu hogar, pide delivery y date el gusto !
+</p>
+
+    <h2>Restaurant: @restaurant.nombre</h2>
+    <table border="1" align="center">
+        <tr>
+            <td>Direccion</td><td>@restaurant.direccion</td>
+        </tr>
+        <tr>
+            <td>Telefono</td><td>@restaurant.telefono</td>
+        </tr>
+    </table>
+
+    <a href="/">Volver</a>
+
+</div>
+}
