@@ -30,8 +30,9 @@ public class Application extends Controller {
     }
 
     @BodyParser.Of(BodyParser.Json.class)
-    public static Result login(String email, String clave) {
-        Usuario uLogin = Usuario.find.where().eq("email", email).eq("clave", clave).findUnique();
+    public static Result login() {
+        Usuario u = Json.fromJson(request().body().asJson(), Usuario.class);
+        Usuario uLogin = Usuario.find.where().eq("email", u.email).eq("clave", u.clave).findUnique();
         return ok(Json.toJson(uLogin.email));
     }
 

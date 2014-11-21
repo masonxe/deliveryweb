@@ -9,7 +9,7 @@ GET     /                     controllers.Application.index()
 GET     /assets/*file         controllers.Assets.at(path="/public", file)
 
 
-POST    /user/crear           controllers.Application.crearUsuario(email: String, clave: String, nombres: String, apellidos: String)
+POST    /user/crear           controllers.Application.crearUsuario()
 POST    /user/login           controllers.Application.login()
 GET     /user/{id}            controllers.Application.getUsuario(id: Long)
 
