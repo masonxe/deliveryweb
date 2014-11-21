@@ -36,9 +36,9 @@ public class Application extends Controller {
         if(uLogin !=null){
             return ok(Json.toJson(uLogin.email));
         }else{
-            return ok(Json.toJson("null"));
+            return ok(Json.toJson("Usuario no encontrado"));
         }
-        
+
     }
 
     @BodyParser.Of(BodyParser.Json.class)
